@@ -10,7 +10,7 @@ def load_pdf(pdf_path):
   mypages = [i.extract_text() or "" for i in reader.pages]
   full_text = "\n".join(mypages).strip()
   if not full_text:
-    raise valueError("No readable text found")
+    raise valueError("No readable Text Found")
   return full_text
 
 
@@ -44,13 +44,13 @@ def create_chunks(full_text,chunksize=500,overlap=100):
        full_text = load_pdf(pdf_path)
        chunks = create_chunks(full_text)
        embed_model,index = build_vector(chunks)
-       return embeded_model,chunks,index
+       return  index,embeded_model,chunks
 
        
        #retrive 
        def retrive_content(question,embed_model,chunks,index,num_chunks=3):
          if not question.strip():
-           raise ValueError("question cannot be blank")
+           raise ValueError("Question cannot be blank")
          if num_chunks < 1
            raise ValueError("Request atleast one or more chunks")
          query_embed = embed_model.encode([question],convert_numpy=True)
@@ -63,7 +63,7 @@ def create_chunks(full_text,chunksize=500,overlap=100):
         return background 
 
        #ask:
-       def ask_rag(question,embedded_model,chunks,index,api_key,num_chunks,model_name = "openai/gpt-oss-120b"):
+       def ask_rag(question,embedded_model,chunks,index,api_key,num_chunks=3,model_name = "openai/gpt-oss-120b"):
          key = api_key
          if not key:
            raise ValueError("API key Missing"):
@@ -72,7 +72,7 @@ def create_chunks(full_text,chunksize=500,overlap=100):
           Answer user question using ONLY document document background below.
           do not invent or assume facts.
           if information not available,simply say Information Missing.
-          Document Background :"""+ background + "user question" + question + "answer:"
+          Document Background :"""+ background + "user question" + question + "Answer:"
           client = Groq(api_key = key)
           response = client.caht.completions.create(
             model = model_name,
