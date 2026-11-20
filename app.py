@@ -29,7 +29,7 @@ with st.chat_message("user"):
   st.write(question)
 
 with st.chat_message("assistant"):
-  with st.spinner("Asking RAG for answer...")
+  with st.spinner("Asking RAG for answer..."):
 answer = ask_rag (question, embed_model, chunks, 
                   index, api_key = mykey )
 st.write (answer)
