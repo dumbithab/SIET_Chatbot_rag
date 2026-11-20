@@ -32,6 +32,6 @@ st.write (answer)
 st.session_state.chat_his.append(
   {"role" : "user","content": answer })
 
-if st.button("clear chat")
+if st.button("clear chat"):
 st.session_state.chat_hist = []
 st.rerun()
