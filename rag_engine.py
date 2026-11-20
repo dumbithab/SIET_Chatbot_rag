@@ -40,7 +40,7 @@ def create_chunks(full_text,chunksize=500,overlap=100):
 
     
    #call loadpdf,chunk,embedding
-     def load_base (pdf_path= "01_collage_information.pdf"):
+     def load_base(pdf_path= "01_collage_information.pdf"):
        full_text = load_pdf(pdf_path)
        chunks = create_chunks(full_text)
        embed_model,index = build_vector(chunks)
