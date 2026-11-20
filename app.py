@@ -1,5 +1,5 @@
 import streamlit as st
-from rag_engine import load_based, ask_rag
+from rag_engine import load_base, ask_rag
 st.set_page_config(page_title = "SIET_chatbox",layout = "centered")
 st.title("shridevi Institution of Engineering and technology - ChatBot")
 st.caption("Ask anything about College information...")
