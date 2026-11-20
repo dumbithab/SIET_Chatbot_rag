@@ -34,7 +34,7 @@ answer = ask_rag (question, embed_model, chunks,
                   index, api_key = mykey )
 st.write (answer)
 st.session_state.chat_his.append(
-  {"role" : "user","content": question})
+  {"role" : "user","content": answer })
 
 if st.button("clear chat")
 st.session_state.chat_hist = []
