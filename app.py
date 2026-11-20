@@ -19,11 +19,10 @@ for qa in st.session_state.chat_hist:
     st.write(qa["content"])
 
 question = st.chat_input("Ask anything about SIET college....")
-
 if question :
-st.session_state.chat_hist.append(
+ st.session_state.chat_hist.append(
     {"role" : "user","content": question})
-with st.chat_message("user"):
+ with st.chat_message("user"):
   st.write(question)
 
 with st.chat_message("assistant"):
